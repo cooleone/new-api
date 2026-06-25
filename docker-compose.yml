@@ -27,8 +27,8 @@ services:
       - ./logs:/app/logs
     environment:
       - SQL_DSN=postgresql://root:123456@postgres:5432/new-api # ⚠️ IMPORTANT: Change the password in production!
-#      - SQL_DSN=root:123456@tcp(mysql:3306)/new-api  # Point to the mysql service, uncomment if using MySQL
-      - REDIS_CONN_STRING=redis://:123456@redis:6379 # ⚠️ IMPORTANT: Change the password in production!
+#      - SQL_DSN=root:root@tcp(mysql:3306)/new-api  # Point to the mysql service, uncomment if using MySQL
+      - REDIS_CONN_STRING=redis://:123456@redis2:6379 # ⚠️ IMPORTANT: Change the password in production!
       - TZ=Asia/Shanghai
       - ERROR_LOG_ENABLED=true # 是否启用错误日志记录 (Whether to enable error log recording)
       - BATCH_UPDATE_ENABLED=true  # 是否启用批量更新 (Whether to enable batch update)
@@ -41,7 +41,7 @@ services:
 #      - UMAMI_SCRIPT_URL=https://analytics.umami.is/script.js  # Umami 脚本 URL，默认为官方地址 (Umami Script URL, defaults to official URL)
 
     depends_on:
-      - redis
+      - redis2
       - postgres
 #      - mysql  # Uncomment if using MySQL
     networks:
@@ -52,9 +52,9 @@ services:
       timeout: 10s
       retries: 3
 
-  redis:
+  redis2:
     image: redis:latest
-    container_name: redis
+    container_name: redis2
     restart: always
     command: ["redis-server", "--requirepass", "123456"]  # ⚠️ IMPORTANT: Change this password in production!
     networks:

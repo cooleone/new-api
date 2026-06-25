@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(go *)",
+      "Bash(timeout *)",
+      "Bash(type *)",
+      "Bash(tasklist)",
+      "Bash(findstr *)",
+      "Bash(mkdir *)",
+      "Bash(echo *)",
+      "Bash(mysql *)",
+      "Bash(docker compose *)",
+      "Bash(docker ps)",
+      "Bash(docker exec *)",
+      "Bash(netstat *)",
+      "Bash(taskkill *)",
+      "Bash(curl *)",
+      "Bash(powershell *)",
+      "Bash(set *)",
+      "Bash(echo)",
+      "Bash(echo.)"
+    ]
+  },
+  "$version": 4
+}
